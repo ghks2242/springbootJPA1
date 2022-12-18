@@ -10,3 +10,7 @@
         - WEB(thymeleaf)
         - 로깅 SLF4J(인터페이스) & LogBack(구현체)
         - 테스트
+
+
+## application.yml 설정시 띄어쓰기가 매우중요!!!!
+
