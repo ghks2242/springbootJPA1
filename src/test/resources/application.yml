@@ -1,0 +1,23 @@
+server:
+  port: 9090
+
+#스프링부트에서는 기본적으로 별도의설정이없으면 메모리모드로 돌린다
+#spring:
+#  datasource:
+#      url: jdbc:h2:mem:test
+#      username: sa
+#      password:
+#      driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create # create 옵션은 애플리케이션 실행시점에 내가가지고있는 엔티티정보를 보고 테이블을 지운다음에 다시 생성
+#    properties:
+#      hibernate:
+##        show_sql: true # 시스템아웃 으로 sql 찍는거
+#        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug # 로거를통해서 sql 을찍음
+    org.hibernate.type: trace # 쿼리에 파라미터를 보여줌
