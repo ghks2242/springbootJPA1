@@ -1,6 +1,8 @@
 package jpabook.jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "orders")
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본생성자를 프로텍트로 만든다
 public class Order {
 
     @Id
@@ -21,7 +24,7 @@ public class Order {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) //
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // 케스케이드 는 Order 가 퍼시스턴스 될때 걸려있는아이들도 다 퍼시스턴스 해준다
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // 기본 디폴트가 즉시로딩(EAGER) 이라 지연로딩으로변경

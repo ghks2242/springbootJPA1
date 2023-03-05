@@ -1,12 +1,15 @@
 package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본생성자를 프로텍트로 만든다
 public class OrderItem {
 
     @Id
@@ -34,6 +37,9 @@ public class OrderItem {
         item.removeStock(count);
         return orderItem;
     }
+
+//    protected OrderItem() {
+//    }
 
     /*== 비즈니스 로직==*/
     public void cancel() {
